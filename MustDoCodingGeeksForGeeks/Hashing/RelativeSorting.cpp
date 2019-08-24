@@ -17,4 +17,31 @@ TakeAway: Use unordered map when you need to keep count of something. Use ordere
 
 */
 
-#include
+#include <bits/stdc++.h>
+
+vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+         map<int,int>hash;
+         vector<int> res;
+
+         int s1 = arr1.size();
+         int s2 = arr2.size();
+
+         for(int i=0;i<s1;i++)
+                  hash[arr1[i]]++;
+
+         for(int i=0;i<s2;i++)
+         {
+                  for(int j=0;j<hash[arr2[i]];j++)
+                           res.push_back(arr2[i]);
+                  hash[arr2[i]]=0;
+         }
+
+         for(auto i: hash)
+         {
+                  for(int j=0;j<i.second;j++)
+                           res.push_back(i.first);
+         }
+
+         return res;
+}
+
