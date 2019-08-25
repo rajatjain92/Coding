@@ -1,5 +1,5 @@
 /*
-Problem : Given a string, sort it in decreasing order based on the frequency of characters.
+Problem : leetocode(451) Given a string, sort it in decreasing order based on the frequency of characters.
 Example: Input: "tree"     ---  Output:"eert"
 
 Explanation:
