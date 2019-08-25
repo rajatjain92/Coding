@@ -1,15 +1,13 @@
 /*
 Problem : Given a string, sort it in decreasing order based on the frequency of characters.
-Example:
-Input:
-"tree"
-
-Output:
-"eert"
+Example: Input: "tree"     ---  Output:"eert"
 
 Explanation:
 'e' appears twice while 'r' and 't' both appear once.
 So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+TakeAway: when sorting needed for values not keys use unordered map and write modified sort function.
+          Learn about [&].
 */
 
 #include <bits/stdc++.h>
