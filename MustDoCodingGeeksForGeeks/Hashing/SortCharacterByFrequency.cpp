@@ -25,6 +25,7 @@ string frequencySort(string s) {
         //[&] means store all variables through reference
         //logic is a > b only when its frequency is more 
         //or if there frequencies are same then then a should appear before b
+        //compare () should have < or > not ==case; return (hash[a] >= hash[b]); this will fail for overflow, on == you cannot decide
         sort(s.begin(),s.end(),[&](char a,char b){
             return (hash[a] > hash[b] || (hash[a]==hash[b] && a<b));
         });
