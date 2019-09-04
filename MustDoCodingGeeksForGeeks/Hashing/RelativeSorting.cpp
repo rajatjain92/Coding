@@ -36,6 +36,7 @@ vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
         for(int i=0;i<s2;i++)
         {
             //push as many times as frequency
+            //hash[arr2[i]] could fail if arr2[i] is not present in arr1.that why in statement it is written every arr2 is in arr1
             for(int j=0;j<hash[arr2[i]];j++)
                 res.push_back(arr2[i]);
             
