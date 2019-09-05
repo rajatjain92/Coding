@@ -26,6 +26,28 @@ to the starting pixel.
 
 #include <bits/stdc++.h>
 
-vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+void func(vector<vector<int>>& image, int sr, int sc, int newColor,int prevColor) {
+        //whole code should be in if block bcoz one pixel may call back to pixel which called it. Means
+        //reverse recursive call can be ther. 
+        if(image[sr][sc] == prevColor){
+                  image[sr][sc] = newColor;
+                  //go down
+                  if(sr + 1 < image.size())    func(image,sr+1,sc,newColor,prevColor);
+                  //go right
+                  if(sc + 1 < image[0].size()) func(image,sr,sc+1,newColor,prevColor);
+                  //go up
+                  if(sr - 1 >= 0)              func(image,sr-1,sc,newColor,prevColor);
+                  //go left
+                  if(sc - 1 >= 0)              func(image,sr,sc-1,newColor,prevColor);
+        }
+    }
+    
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+        int prevColor = image[sr][sc];
         
-}
+        //if new color is same as old color do not call recursion function
+        if(prevColor != newColor)
+            func(image,sr,sc,newColor,prevColor);
+        return image;
+    }
+};
