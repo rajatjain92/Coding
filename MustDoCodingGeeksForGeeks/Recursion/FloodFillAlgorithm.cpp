@@ -22,6 +22,8 @@ From the center of the image (with position (sr, sc) = (1, 1)), all pixels conne
 by a path of the same color as the starting pixel are colored with the new color.
 Note the bottom corner is not colored 2, because it is not 4-directionally connected
 to the starting pixel.
+
+This recursion is same as depth first traversal.
 */
 
 #include <bits/stdc++.h>
