@@ -38,9 +38,8 @@ int findMinArrowShots(vector<vector<int>>& points) {
            return 0;
         
        sort(points.begin(),points.end());
-  
-       //start with 1 for first pair because it is getting in else 
-       int count = 1;
+   
+       int count = 0;
        int minEndLatestOverlap = INT_MAX;
         
        for(int i=0;i<s;i++)
@@ -56,6 +55,9 @@ int findMinArrowShots(vector<vector<int>>& points) {
            {
                //means overlapping no need to update count. Just update minEndLatestOverlap
                minEndLatestOverlap = min(minEndLatestOverlap,points[i][1]);
+               //increase for first element
+               if(i == 0)
+                 count++;
            }
        }
        return count;
