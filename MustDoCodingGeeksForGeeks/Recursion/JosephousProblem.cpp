@@ -12,8 +12,7 @@ person at position 3 survives.
 
 */
 
-####################################################################################################
-###################################RECURSION########################################################
+###################################---RECURSION---#####################################
 
 // RECURSION
 
@@ -30,7 +29,9 @@ logic:
 > Everything is fine but what is our answer is n , in that case we will get 0 as answer due to mod operator. So we subtract 1 from inside
   bracket value which is to be mod and add 1 at the end to compensate subtraction.S0 recursion is:
   J(n,k) = (J(n-1,k) + k - 1) % n + 1
+  */
 
+//Recursive O(n) solution
 int lastRemaining(int n,int k) {
     //if n is 1 then he is the answer.Do not go below 1.
     if (n == 1)
