@@ -13,11 +13,6 @@ person at position 3 survives.
 */
 
 ###################################---RECURSION---#####################################
-
-// RECURSION
-
-#include <bits/stdc++.h>
-
 /*
 logic:
 > This function returns index of last person remaining.
@@ -31,6 +26,8 @@ logic:
   J(n,k) = (J(n-1,k) + k - 1) % n + 1
   */
 
+#include <bits/stdc++.h>
+
 //Recursive O(n) solution
 int lastRemaining(int n,int k) {
     //if n is 1 then he is the answer.Do not go below 1.
@@ -39,3 +36,9 @@ int lastRemaining(int n,int k) {
         
     return (lastRemaining(n-1,k) + k - 1) % n + 1;
 }
+
+
+##################################---Special case when k=2---#######################################
+/*
+Logic:
+
