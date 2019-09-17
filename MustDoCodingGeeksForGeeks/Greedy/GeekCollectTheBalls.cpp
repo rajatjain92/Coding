@@ -1,4 +1,4 @@
-/*
+/*PROBLEM:-
 There are two parallel roads, each containing N and M buckets, respectively. Each bucket may contain some balls. The buckets on both 
 roads are kept in such a way that they are sorted according to the number of balls in them. Geek starts from the end of the road which 
 has the bucket with a lower number of balls(i.e. if buckets are sorted in increasing order, then geek will start from the left side of 
@@ -35,7 +35,7 @@ Explanation:
 The path with maximum sum is (2,3,4)[5,6](9). Integers in [] are the buckets of first road and in () are the buckets of second road. 
 So, max balls geek can collect is 29.
 
-Logic
+LOGIC:-
 > We will break down problem into small points
 > We will try to solve till intersection point then restart solving after that.
 > Here   1 4 5 6 8 first intersection point is 4 and second is 6
