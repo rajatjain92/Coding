@@ -59,7 +59,7 @@ int main() {
 	
 	    int min=0,max=0;
 		
-	    //
+	    //groups of k+1 will be formed. k free candies + 1 for which we pay
 	    int groups = ceil((float)n/(float)(k+1));
 	    
 	    for(int i=0;i<groups;i++)
