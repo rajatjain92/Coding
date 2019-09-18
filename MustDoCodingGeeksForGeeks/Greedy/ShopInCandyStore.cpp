@@ -54,9 +54,12 @@ int main() {
 	        arr.push_back(input);
 	    }
 	    
+	    //sorting is necessary
 	    sort(arr.begin(),arr.end());
 	
 	    int min=0,max=0;
+		
+	    //
 	    int groups = ceil((float)n/(float)(k+1));
 	    
 	    for(int i=0;i<groups;i++)
