@@ -43,4 +43,99 @@ Set is an ordered sequence of unique keys whereas unordered_set is a set in whic
 Set is implemented as a balanced tree structure that is why it is possible to maintain order between the elements (by specific tree 
 traversal). The time complexity of set operations is O(log n) while for unordered_set, it is O(1).
 
+
+Logic:
+> Create set as memory cache .Every operation takes O(1) timein set.
+> To keep track of occurences we use map storing page arr[i] and occurence i. i number is treated as occurence number.
+> For every element check if element is present in set (memory cache) ,if yes we only need to update map
+> otherwise if element is not present in set, then check if set size is full or not. If not increase page fault , 
+  insert set and update map. If size is full here means LRU needs to be implemented. for every element in set search map and see
+  smallest page occurence. Erase it from set . Add new page[i] in set and update arr[i] in in map. No need to update map entry for min
+  occurence page found which is erased from set. Because we are searching according to set and in set that element will be removed and 
+  logically removed page occurence is still same.Whenever removed page will come 
+> Time Complexity - O(n*k(cache size)))
+
 */
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin >> t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    vector<int>arr;
+	    
+      //taking inputs
+	    for(int i=0;i<n;i++){
+	        int in;
+	        cin>>in;
+	        arr.push_back(in);
+	    }
+	    
+      //memory capacity
+	    int memory_size;
+	    cin>>memory_size;
+	    int page_faults = 0;
+	  
+	    //set to check in O(1) time if element is present or not in memory cache
+      unordered_set<int> s;
+    
+      //map to keep page and latest index pair updated (unordered so O(1))
+	    unordered_map<int,int> indexes;
+	    
+      //for every element
+	    for(int i=0;i<n;i++)
+	    {
+          //if element is not present in memory cache
+	        if(s.find(arr[i]) == s.end())
+	        {
+              //if till cache is not full
+	            if(s.size() < memory_size)
+	            {
+                  //at this point means i is not present in cache and cache capacity is not still full
+	                page_faults++;             //increase page fults
+	                s.insert(arr[i]);          //insert in cache
+	                indexes[arr[i]] = i;       //update map storing element arr[i] and its latest occurence i.
+	            }
+	            else
+	            {
+                  //if cache is full means LRU needs to be used
+	                int a,b=INT_MAX;           //give b max value , b stores occurence number
+                
+                  //for every element in cache check map and store least occurence number
+	                for(auto it=s.begin(); it != s.end(); ++it)
+	                {
+	                    if(indexes[*it] < b)
+	                    {
+	                        a = *it;
+	                        b = indexes[*it];
+	                    }
+	                }
+                
+                  //remove least occurence used
+	                s.erase(a);
+                  //insert the latest page
+	                s.insert(arr[i]);
+                  //increase page fault
+	                page_faults++;
+                
+                  //update latest page occurence in map
+	                indexes[arr[i]]=i;
+	            }
+	        }
+	        else
+          {
+              //Here it means element is already found in memory cache
+              //so just update page arr[i] occurence i in map.
+	            indexes[arr[i]] = i;
+          }
+	    }
+	    cout<<page_faults<<endl;
+	}
+	return 0;
+}
