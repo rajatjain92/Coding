@@ -27,7 +27,7 @@ public:
         ListNode *next = NULL;
         
         //here p1 p2 edge will be reversed and p3 will be future node
-        while(p3 != NULL){
+        while(curr != NULL){
             next = curr->next;
             curr->next = prev;
             prev = curr;
