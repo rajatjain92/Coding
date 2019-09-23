@@ -38,6 +38,7 @@ struct node *reverse (struct node *head, int k)
         //p2 and p3 start from same position
         struct node *p2 = head;
         struct node *p3 = NULL;
+        //always start p1,p3 as prev and next from null
         
         int count = 0;
         
