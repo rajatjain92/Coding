@@ -43,21 +43,27 @@ public:
             p = p->next;
         }
         
+        //join last element to first element
         p->next = head;
         
+        //k can be > n
         if(k >= len)
             k = k % len;
         
         ListNode * p2 = head;
         ListNode * p3 = head;
         
+        //new position of last element
         int tmp = len-k-1;
+        
         while(tmp){
             p2 = p2->next;
             tmp--;
         }
         
+        //new start position
         p3 = p2->next;
+        //create last element
         p2->next = NULL;
         
         return p3;
