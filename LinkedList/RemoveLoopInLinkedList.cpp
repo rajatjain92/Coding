@@ -48,7 +48,8 @@ ListNode *detectCycle(ListNode *head) {
                 slow = head;
                 
                 //now move slow and fast at same speed they will meet at starting point
-                while(slow != fast){
+                //to find starting point of cycle use while(slow != fast)
+                while(slow->next != fast->next){
                     slow = slow->next;
                     fast = fast->next;
                 }
