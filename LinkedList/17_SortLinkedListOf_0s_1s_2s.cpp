@@ -36,7 +36,8 @@ void Sort_list(ListNode * head){
 
 /* Second Approach:
 > This approach should be used where you cannot modify linked list.
->
+> Make 3 different lists for 0,1,2 and then combine them
+> Also take care of cases when 1 is not present or 2 or 0 or both etc.
 */
 
 Node* segregate(Node *head) {
